@@ -1,8 +1,12 @@
 {
   "name": "marka-js",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "",
-  "keywords": [],
+  "keywords": [
+    "marka",
+    "anchor",
+    "external link"
+  ],
   "main": "dist/marka-js.umd.js",
   "module": "dist/marka-js.es5.js",
   "typings": "dist/types/marka-js.d.ts",
@@ -12,16 +16,16 @@
   "author": "hikerpig <hikerpigwinnie@gmail.com>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/hikerpig/marka-js.git"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.0.0"
   },
   "scripts": {
-    "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "lint": "echo 'no lint'",
     "prebuild": "rimraf dist",
-    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
+    "build": "cross-env NODE_ENV=production tsc --module commonjs && rollup -c rollup.config.ts",
     "start": "rollup -c rollup.config.ts -w",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
@@ -89,7 +93,7 @@
     "colors": "^1.3.2",
     "commitizen": "^3.0.0",
     "coveralls": "^3.0.2",
-    "cross-env": "^5.2.0",
+    "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^2.1.0",
     "husky": "^1.0.1",
     "jest": "^23.6.0",
@@ -103,8 +107,10 @@
     "rollup": "^2.26.9",
     "rollup-plugin-commonjs": "^9.1.8",
     "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-less": "^1.1.2",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-static-files": "^0.1.0",
     "rollup-plugin-typescript2": "^0.18.0",
     "semantic-release": "^15.9.16",
     "shelljs": "^0.8.3",
@@ -113,7 +119,6 @@
     "ts-node": "^7.0.1",
     "tslint-config-prettier": "^1.15.0",
     "tslint-config-standard": "^8.0.1",
-    "typedoc": "^0.12.0",
     "typescript": "^4.0.2"
   }
 }

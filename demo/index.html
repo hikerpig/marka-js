@@ -1,14 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marka.js demo</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marka.js demo</title>
+    <link rel="stylesheet" href="../dist/marka.css" />
+  </head>
+  <body>
+    <main>
+      <h1 id="marka.js">marka.js</h1>
+      <p>
+        Marka will mark anchor elements and add icons according to the href. It is inspired by
+        <a href="https://beepb00p.xyz">https://beepb00p.xyz</a>.
+      </p>
+      <p>Recognized sites:</p>
+      <ul>
+        <li><a href="https://github.com/">github.com</a></li>
+        <li><a href="https://en.wikipedia.org/">wikipedia.org</a></li>
+        <li><a href="https://youtube.com/">youtube.com</a></li>
+        <li><a href="https://facebook.com/">facebook.com</a></li>
+        <li><a href="https://google.com/">google.com</a></li>
+        <li><a href="https://twitter.com/">twitter.com</a></li>
+        <li><a href="https://zhihu.com/">zhihu.com</a></li>
+        <li><a href="https://douban.com/">douban.com</a></li>
+        <li><a href="https://music.163.com/">music.163.com</a></li>
+      </ul>
+      <h2 id="usage">Usage</h2>
+      <h3 id="marka.initmarkaoptions">marka.init(MarkaOptions)</h3>
+      <p>example:</p>
+      <code>marka.init({
+        container: &#39;body&#39;,
+      })</code>
+      <h4 id="markaoptions">MarkaOptions:</h4>
+      <p>All fields are optional.</p>
+      <table>
+        <colgroup>
+          <col style="width: 11%" />
+          <col style="width: 8%" />
+          <col style="width: 80%" />
+        </colgroup>
+        <thead>
+          <tr class="header">
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="odd">
+            <td>container</td>
+            <td><code>string | HTMLElement</code></td>
+            <td>marka container, marking will only affect elements inside it</td>
+          </tr>
+          <tr class="even">
+            <td>imageBaseDir</td>
+            <td><code>string</code></td>
+            <td>Base directory for images, default is <code>./images</code></td>
+          </tr>
+          <tr class="odd">
+            <td>ignore</td>
+            <td><code>(ele: Element | HTMLElement, rule: MarkaRule): boolean</code></td>
+            <td>If returned <code>true</code>, the element will be ignored</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
 
-  <script src="../dist/marka-js.umd.js"></script>
+    <script src="../dist/marka-js.umd.js"></script>
 
-  <script src="./index.js"></script>
-</body>
+    <script src="./index.js"></script>
+  </body>
 </html>
