@@ -14,13 +14,23 @@ Recognized sites:
 - [douban.com](https://douban.com/)
 - [music.163.com](https://music.163.com/)
 
+## Install
+
+Import style and script to your html:
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/marka-js/dist/marka.css" />
+
+<script src="https://unpkg.com/marka-js/dist/marka-js.umd.js"></script>
+```
+
 ## Usage
 
 ### marka.init(MarkaOptions)
 
 example:
 
-```
+```js
 marka.init({
   container: 'body',
 })
@@ -32,6 +42,16 @@ All fields are optional.
 
 | Name      | Type   | Description                                                              |
 |-----------|--------|----------------------------------------------------------------------------|
-| container | `string | HTMLElement` | marka container, marking will only affect elements inside it |
+| container | `string` or `HTMLElement` | marka container, marking will only affect elements inside it |
 | imageBaseDir | `string` | Base directory for images, default is `./images` |
-| ignore | `(ele: Element | HTMLElement, rule: MarkaRule): boolean` | If returned `true`, the element will be ignored |
+| ignore | `(ele: Element, rule: MarkaRule): boolean` | If returned `true`, the element will be ignored |
+
+### Customize styles
+
+Override css variables:
+
+```css
+body {
+  --marka-link-color: purple;
+}
+```
