@@ -96,13 +96,18 @@ function generateRuleCss(opts: { rule: MarkaRule; selector: string; imageBaseDir
 function processUrlByRules(url: string, rules: MarkaRule[]) {
   let type = ''
   let matchedRule = null
-  const urlObj = new URL(url)
-  for (const rule of rules) {
-    if (rule.hostPattern.test(urlObj.host)) {
-      type = rule.type
-      matchedRule = rule
-      break
+
+  try {
+    const urlObj = new URL(url)
+    for (const rule of rules) {
+      if (rule.hostPattern.test(urlObj.host)) {
+        type = rule.type
+        matchedRule = rule
+        break
+      }
     }
+  } catch (error) {
+    console.info('[marka] error', error)
   }
 
   return {
@@ -113,6 +118,23 @@ function processUrlByRules(url: string, rules: MarkaRule[]) {
 
 const marka = {
   init,
+  onScriptLoaded(ele: HTMLScriptElement) {
+    const src = ele.getAttribute('src')
+    if (!defaultOptions.imageBaseDir) {
+      try {
+        const urlObj = new URL(src as string)
+        const pathSegs = urlObj.pathname.split('/')
+        const imagesDirPath = pathSegs
+          .slice(0, -1)
+          .concat(['images'])
+          .join('/')
+        defaultOptions.imageBaseDir = `${urlObj.protocol}//${urlObj.host}/${imagesDirPath}`
+      } catch (error) {
+        // do nothing
+        console.debug(error)
+      }
+    }
+  },
   dispose() {
     if (markaStyleElement) {
       markaStyleElement.parentElement?.removeChild(markaStyleElement)

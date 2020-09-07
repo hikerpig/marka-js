@@ -1,6 +1,6 @@
 # marka.js
 
-Marka will mark anchor elements and add icons according to the href. It is inspired by [https://beepb00p.xyz](https://beepb00p.xyz).
+Marka is a JavaScript lib that runs in the browser, it will mark anchor elements and add icons according to the href. It is inspired by [https://beepb00p.xyz](https://beepb00p.xyz) and [anchorjs](https://github.com/bryanbraun/anchorjs).
 
 Recognized sites:
 
@@ -19,9 +19,15 @@ Recognized sites:
 Import style and script to your html:
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/marka-js/dist/marka.css" />
+<link rel="stylesheet" href="https://unpkg.com/marka-js@latest/dist/marka.css" />
 
-<script src="https://unpkg.com/marka-js/dist/marka-js.umd.js"></script>
+<script src="https://unpkg.com/marka-js@latest/dist/marka-js.umd.js"></script>
+```
+
+You can also add an `onload` callback as below and marka will inspect default `imageBaseDir` by script's src.
+
+```html
+<script src="https://unpkg.com/marka-js@latest/dist/marka-js.umd.js" onload="marka.onScriptLoaded(this)"></script>
 ```
 
 ## Usage
@@ -31,8 +37,11 @@ Import style and script to your html:
 example:
 
 ```js
-marka.init({
-  container: 'body',
+window.addEventListener('DOMContentLoaded', function() {
+  marka.init({
+    container: 'body',
+    imageBaseDir: 'https://unpkg.com/marka-js@latest/dist/images',
+  })
 })
 ```
 
