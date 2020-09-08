@@ -7,7 +7,7 @@ import typescript from 'rollup-plugin-typescript2'
 import json from 'rollup-plugin-json'
 import less from 'rollup-plugin-less'
 import staticFiles from 'rollup-plugin-static-files'
-
+import serve from 'rollup-plugin-serve'
 
 const pkg = require('./package.json')
 
@@ -16,6 +16,8 @@ const libraryName = 'marka'
 const isProd = process.env.NODE_ENV === 'production'
 
 const resolvePath = (...segs) => path.join(__dirname, ...segs)
+
+const isWatch = process.env.WATCH === 'true'
 
 export default {
   input: `src/index.ts`,
@@ -29,7 +31,6 @@ export default {
     include: 'src/**',
   },
   plugins: [
-    // Allow json resolution
     json(),
     // Compile TypeScript files
     typescript({ useTsconfigDeclarationDir: true }),
@@ -47,6 +48,9 @@ export default {
     }),
     staticFiles({
       include: ['./public']
-    })
+    }),
+    ...(isWatch ? [serve({
+      contentBase: ['.', 'public']
+    })]: [])
   ],
 }
