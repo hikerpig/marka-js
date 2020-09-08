@@ -41,6 +41,9 @@ window.addEventListener('DOMContentLoaded', function() {
   marka.init({
     container: 'body',
     imageBaseDir: 'https://unpkg.com/marka-js@latest/dist/images',
+    extraRules: [
+      { type: 'miniflux', hostPattern: /miniflux\.app/, imagePath: 'https://raw.githubusercontent.com/miniflux/logo/master/icon.svg' },
+    ]
   })
 })
 ```
@@ -54,6 +57,23 @@ All fields are optional.
 | container | `string` or `HTMLElement` | marka container, marking will only affect elements inside it |
 | imageBaseDir | `string` | Base directory for images, default is `./images` |
 | ignore | `(ele: Element, rule: MarkaRule): boolean` | If returned `true`, the element will be ignored |
+| rules | `MarkaRule[]` | rules used to match anchor elements |
+| extraRules | `MarkaRule[]` | extra rules besides default rules |
+
+#### MarkaRule
+
+A rule for matching and generating css rule for anchor elements.
+
+```ts
+type MarkaRule = {
+  /** a regex pattern to match against url host */
+  hostPattern: RegExp
+  /** will affect generated css selector, e.g. 'github'/'twitter' */
+  type: string
+  /** the url of image, e.g. 'https://unpkg.com/marka-js@0.1.0/dist/images/github.svg' */
+  imagePath?: string
+}
+```
 
 ### Customize styles
 

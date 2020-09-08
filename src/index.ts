@@ -25,6 +25,7 @@ type MarkaRule = {
 const RULES = [
   { hostPattern: /github.com$/, type: 'github' },
   { hostPattern: /wikipedia.org$/, type: 'wikipedia' },
+  { hostPattern: /wikiwand.org$/, type: 'wikipedia' },
   { hostPattern: /youtube.com$/, type: 'youtube' },
   { hostPattern: /facebook.com$/, type: 'facebook' },
   { hostPattern: /google.com$/, type: 'google' },
@@ -36,6 +37,8 @@ const RULES = [
 
 let markaStyleElement: HTMLStyleElement | null
 const MARKA_STYLE_ID = 'marka-style'
+// avoid duplicate rules
+const markaStyleMap = new Map<string, string[]>()
 
 function init(rawOpts: MarkaOptions) {
   const opts = Object.assign({}, defaultOptions, rawOpts)
@@ -73,12 +76,19 @@ function init(rawOpts: MarkaOptions) {
       ele.classList.add(CLASSES.link)
       const linkClass = `marka-link--${result.type}`
       ele.classList.add(linkClass)
-      const cssString = generateRuleCss({
+      const { selectorText, identifier, cssString } = generateRuleCss({
         rule: result.rule,
         selector: `.${linkClass}`,
         imageBaseDir: opts.imageBaseDir
       })
-      markaStyleElement ? markaStyleElement.append(cssString) : null
+      if (markaStyleElement) {
+        const oldIdentifiers = markaStyleMap.get(selectorText) || []
+        if (!oldIdentifiers.includes(identifier)) {
+          oldIdentifiers.push(identifier)
+          markaStyleMap.set(selectorText, oldIdentifiers)
+          markaStyleElement.append(cssString)
+        }
+      }
     }
   })
 }
@@ -87,10 +97,13 @@ function generateRuleCss(opts: { rule: MarkaRule; selector: string; imageBaseDir
   const { rule, selector } = opts
   const imageBaseDir = opts.imageBaseDir || './image'
   const imagePath = rule.imagePath || `${imageBaseDir}/${rule.type}.svg`
-  const cssString = `${selector}::after {
+  const selectorText = `${selector}::after`
+  const identifier = `${selector}_${imagePath}`
+  const cssString = `${selectorText} {
+  mask-image: url('${imagePath}');
   -webkit-mask-image: url('${imagePath}');
 }`
-  return cssString
+  return { cssString, selectorText, identifier }
 }
 
 function processUrlByRules(url: string, rules: MarkaRule[]) {
@@ -139,6 +152,7 @@ const marka = {
     if (markaStyleElement) {
       markaStyleElement.parentElement?.removeChild(markaStyleElement)
       markaStyleElement = null
+      markaStyleMap.clear()
     }
   }
 }
