@@ -54,6 +54,9 @@
     "transform": {
       ".(ts|tsx)": "ts-jest"
     },
+    "moduleNameMapper": {
+      ".less": "<rootDir>/__mocks__/style-mock.js"
+    },
     "testEnvironment": "node",
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "moduleFileExtensions": [
@@ -63,16 +66,8 @@
     ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
-      "/test/"
+      "/__tests__/"
     ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 90,
-        "functions": 95,
-        "lines": 95,
-        "statements": 95
-      }
-    },
     "collectCoverageFrom": [
       "src/*.{js,ts}"
     ]

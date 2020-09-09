@@ -22,7 +22,7 @@ type MarkaRule = {
   imagePath?: string
 }
 
-const RULES = [
+const RULES: MarkaRule[] = [
   { hostPattern: /github.com$/, type: 'github' },
   { hostPattern: /wikipedia.org$/, type: 'wikipedia' },
   { hostPattern: /wikiwand.org$/, type: 'wikipedia' },
@@ -132,6 +132,9 @@ function processUrlByRules(url: string, rules: MarkaRule[]) {
 
 const marka = {
   init,
+  getDefaultRules() {
+    return RULES
+  },
   onScriptLoaded(ele: HTMLScriptElement) {
     const src = ele.getAttribute('src')
     if (!defaultOptions.imageBaseDir) {
