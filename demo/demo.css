@@ -11,3 +11,9 @@ pre {
 #readme-container {
   padding: 20px 0;
 }
+
+h2,
+h3,
+h4 {
+  margin-top: 10px;
+}

@@ -7,10 +7,23 @@ fetch('/README.md')
   .then(readmeText => {
     const html = marked(readmeText)
     readmeContainer.innerHTML = html
+
+    enhanceMarkdownHtml()
     highlightCode()
 
     initMarka()
   })
+
+function enhanceMarkdownHtml() {
+  readmeContainer.querySelectorAll('table').forEach((ele) => {
+    const newContainer = document.createElement('div')
+    newContainer.classList.add('markdown-body')
+    ele.parentElement.insertBefore(newContainer, ele)
+    ele.parentElement.removeChild(ele)
+    newContainer.appendChild(ele)
+  })
+
+}
 
 function highlightCode() {
   document.querySelectorAll('pre code').forEach(block => {
@@ -20,6 +33,7 @@ function highlightCode() {
 
 function initMarka() {
   marka.init({
+    container: readmeContainer,
     imageBaseDir: '/dist/images',
     extraRules: [
       {
