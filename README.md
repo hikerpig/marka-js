@@ -27,15 +27,15 @@ It has some pre-defined recognized sites as below.
 Import style and script to your html:
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/marka-js@latest/dist/marka.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/marka-js/dist/marka.css" />
 
-<script src="https://unpkg.com/marka-js@latest/dist/marka-js.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marka-js/dist/marka-js.umd.min.js"></script>
 ```
 
 You can also add an `onload` callback as below and marka will inspect default `imageBaseDir` by script's src.
 
 ```html
-<script src="https://unpkg.com/marka-js@latest/dist/marka-js.umd.js" onload="marka.onScriptLoaded(this)"></script>
+<script src="https://cdn.jsdelivr.net/npm/marka-js/dist/marka-js.umd.min.js" onload="marka.onScriptLoaded(this)"></script>
 ```
 
 ## Usage
@@ -48,7 +48,7 @@ example:
 window.addEventListener('DOMContentLoaded', function() {
   marka.init({
     container: 'body',
-    imageBaseDir: 'https://unpkg.com/marka-js@latest/dist/images',
+    imageBaseDir: 'https://cdn.jsdelivr.net/npm/marka-js/dist/images',
     extraRules: [
       { type: 'miniflux', hostPattern: /miniflux\.app/, imagePath: 'https://raw.githubusercontent.com/miniflux/logo/master/icon.svg' },
     ]
@@ -78,7 +78,7 @@ type MarkaRule = {
   hostPattern: RegExp
   /** will affect generated css selector, e.g. 'github'/'twitter' */
   type: string
-  /** the url of image, e.g. 'https://unpkg.com/marka-js@0.1.0/dist/images/github.svg' */
+  /** the url of image, e.g. 'https://cdn.jsdelivr.net/npm/marka-js/dist/images/github.svg' */
   imagePath?: string
 }
 ```
