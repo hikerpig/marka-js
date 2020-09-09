@@ -1,8 +1,13 @@
-# marka.js
+# marka-js
+
+![](https://badgen.net/badgesize/normal/https/unpkg.com/marka-js/dist/marka-js.es5.js)
+![](https://badgen.net/jsdelivr/v/npm/marka-js)
 
 Marka is a JavaScript lib that runs in the browser, it will mark anchor elements and add icons according to the href. It is inspired by [https://beepb00p.xyz](https://beepb00p.xyz) and [anchorjs](https://github.com/bryanbraun/anchorjs).
 
-Recognized sites:
+See the [demo on vercel](https://marka-js.vercel.app/).
+
+It has some pre-defined recognized sites as below.
 
 - [github.com](https://github.com/)
 - [wikipedia.org](https://en.wikipedia.org/)
@@ -14,6 +19,8 @@ Recognized sites:
 - [zhihu.com](https://zhihu.com/)
 - [douban.com](https://douban.com/)
 - [music.163.com](https://music.163.com/)
+
+ You can also add your own rules, see the [#Usage](#usage) section.
 
 ## Install
 
