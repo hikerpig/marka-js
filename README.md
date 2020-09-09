@@ -10,6 +10,7 @@ Recognized sites:
 - [facebook.com](https://facebook.com/)
 - [google.com](https://google.com/)
 - [twitter.com](https://twitter.com/)
+- [medium.com](https://medium.com/)
 - [zhihu.com](https://zhihu.com/)
 - [douban.com](https://douban.com/)
 - [music.163.com](https://music.163.com/)

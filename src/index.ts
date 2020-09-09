@@ -30,6 +30,7 @@ const RULES = [
   { hostPattern: /facebook.com$/, type: 'facebook' },
   { hostPattern: /google.com$/, type: 'google' },
   { hostPattern: /twitter.com$/, type: 'twitter' },
+  { hostPattern: /medium.com$/, type: 'medium' },
   { hostPattern: /zhihu.com$/, type: 'zhihu' },
   { hostPattern: /douban.com$/, type: 'douban' },
   { hostPattern: /music.163.com$/, type: 'yunyinyue' }
