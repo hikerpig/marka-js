@@ -17,7 +17,8 @@ const CLASSES = {
 }
 
 type MarkaRule = {
-  hostPattern: RegExp
+  hostPattern?: RegExp
+  pathPattern?: RegExp
   type: string
   imagePath?: string
 }
@@ -33,7 +34,10 @@ const RULES: MarkaRule[] = [
   { hostPattern: /medium.com$/, type: 'medium' },
   { hostPattern: /zhihu.com$/, type: 'zhihu' },
   { hostPattern: /douban.com$/, type: 'douban' },
-  { hostPattern: /music.163.com$/, type: 'yunyinyue' }
+  { hostPattern: /music.163.com$/, type: 'yunyinyue' },
+  { pathPattern: /\.pdf$/, type: 'pdf' },
+  { pathPattern: /\.txt$/, type: 'txt' },
+  { pathPattern: /\.csv$/, type: 'csv' }
 ]
 
 let markaStyleElement: HTMLStyleElement | null
@@ -114,9 +118,15 @@ function processUrlByRules(url: string, rules: MarkaRule[]) {
   try {
     const urlObj = new URL(url)
     for (const rule of rules) {
-      if (rule.hostPattern.test(urlObj.host)) {
+      console.log(urlObj.pathname)
+      if (rule.pathPattern && rule.pathPattern.test(urlObj.pathname)) {
         type = rule.type
         matchedRule = rule
+      } else if (rule.hostPattern && rule.hostPattern.test(urlObj.host)) {
+        type = rule.type
+        matchedRule = rule
+      }
+      if (matchedRule) {
         break
       }
     }

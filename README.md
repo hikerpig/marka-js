@@ -7,7 +7,7 @@ Marka is a JavaScript lib that runs in the browser, it will mark anchor elements
 
 See the [demo on vercel](https://marka-js.vercel.app/).
 
-It has some pre-defined recognized sites as below.
+It has some pre-defined recognized sites:
 
 - [github.com](https://github.com/)
 - [wikipedia.org](https://en.wikipedia.org/)
@@ -19,6 +19,12 @@ It has some pre-defined recognized sites as below.
 - [zhihu.com](https://zhihu.com/)
 - [douban.com](https://douban.com/)
 - [music.163.com](https://music.163.com/)
+
+And pre-defined recognized file extensions:
+
+- [pdf](https://www2.eecs.berkeley.edu/Pubs/TechRpts/1997/CSD-97-946.pdf)
+- [txt](https://www.w3.org/TR/PNG/iso_8859-1.txt)
+- [csv](https://support.staffbase.com/hc/en-us/article_attachments/360009197031/username.csv)
 
  You can also add your own rules, see the [#Usage](#usage) section.
 
@@ -51,6 +57,7 @@ window.addEventListener('DOMContentLoaded', function() {
     imageBaseDir: 'https://cdn.jsdelivr.net/npm/marka-js/dist/images',
     extraRules: [
       { type: 'miniflux', hostPattern: /miniflux\.app/, imagePath: 'https://raw.githubusercontent.com/miniflux/logo/master/icon.svg' },
+      { type: 'tex', pathPattern: /\.tex$/, imagePath: 'https://raw.githubusercontent.com/primer/octicons/master/icons/file-code-16.svg' },
     ]
   })
 })
@@ -74,8 +81,10 @@ A rule for matching and generating css rule for anchor elements.
 
 ```ts
 type MarkaRule = {
+  /** a regex pattern to match against url pathname */
+  pathPattern?: RegExp
   /** a regex pattern to match against url host */
-  hostPattern: RegExp
+  hostPattern?: RegExp
   /** will affect generated css selector, e.g. 'github'/'twitter' */
   type: string
   /** the url of image, e.g. 'https://cdn.jsdelivr.net/npm/marka-js/dist/images/github.svg' */
