@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/hikerpig/marka-js/compare/v0.2.1...v0.3.0) (2020-09-21)
+
+
+### Features
+
+* add medium.com icon; and highlight.js to demo page ([9876a57](https://github.com/hikerpig/marka-js/commit/9876a57aa56e7fbd22cb507bd1d6696d89dfa5a7))
+* Add rule `pathPattern` for some file extensions ([e050725](https://github.com/hikerpig/marka-js/commit/e05072597aeededa282b19cdbfaf9e790b083e76))
+
 ## [0.2.1](https://github.com/hikerpig/marka-js/compare/v0.2.0...v0.2.1) (2020-09-08)
 
 
