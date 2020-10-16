@@ -118,7 +118,6 @@ function processUrlByRules(url: string, rules: MarkaRule[]) {
   try {
     const urlObj = new URL(url)
     for (const rule of rules) {
-      console.log(urlObj.pathname)
       if (rule.pathPattern && rule.pathPattern.test(urlObj.pathname)) {
         type = rule.type
         matchedRule = rule
