@@ -10,6 +10,7 @@ See the [demo on vercel](https://marka-js.vercel.app/).
 It has some pre-defined recognized sites:
 
 - [github.com](https://github.com/)
+- [gitlab.com](https://gitlab.com/)
 - [wikipedia.org](https://en.wikipedia.org/)
 - [stackoverflow.com](https://stackoverflow.com/)
 - [youtube.com](https://youtube.com/)

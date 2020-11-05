@@ -25,6 +25,7 @@ type MarkaRule = {
 
 const RULES: MarkaRule[] = [
   { hostPattern: /github.com$/, type: 'github' },
+  { hostPattern: /gitlab.com$/, type: 'gitlab' },
   { hostPattern: /wikipedia.org$/, type: 'wikipedia' },
   { hostPattern: /wikiwand.org$/, type: 'wikipedia' },
   { hostPattern: /stackoverflow.com$/, type: 'stackoverflow' },
