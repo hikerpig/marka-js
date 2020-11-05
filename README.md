@@ -11,6 +11,7 @@ It has some pre-defined recognized sites:
 
 - [github.com](https://github.com/)
 - [wikipedia.org](https://en.wikipedia.org/)
+- [stackoverflow.com](https://stackoverflow.com/)
 - [youtube.com](https://youtube.com/)
 - [facebook.com](https://facebook.com/)
 - [google.com](https://google.com/)

@@ -27,6 +27,7 @@ const RULES: MarkaRule[] = [
   { hostPattern: /github.com$/, type: 'github' },
   { hostPattern: /wikipedia.org$/, type: 'wikipedia' },
   { hostPattern: /wikiwand.org$/, type: 'wikipedia' },
+  { hostPattern: /stackoverflow.com$/, type: 'stackoverflow' },
   { hostPattern: /youtube.com$/, type: 'youtube' },
   { hostPattern: /facebook.com$/, type: 'facebook' },
   { hostPattern: /google.com$/, type: 'google' },
