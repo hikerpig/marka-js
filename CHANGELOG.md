@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.2](https://github.com/hikerpig/marka-js/compare/v0.3.1...v0.3.2) (2020-11-05)
+
+
+### Features
+
+* Add stackoverflow rule ([0afdb79](https://github.com/hikerpig/marka-js/commit/0afdb79b6e711fc7a96fb92368486555fbef13d9))
+
 ### [0.3.1](https://github.com/hikerpig/marka-js/compare/v0.3.0...v0.3.1) (2020-10-16)
 
 ## [0.3.0](https://github.com/hikerpig/marka-js/compare/v0.2.1...v0.3.0) (2020-09-21)
