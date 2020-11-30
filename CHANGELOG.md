@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.3](https://github.com/hikerpig/marka-js/compare/v0.3.2...v0.3.3) (2020-11-30)
+
+
+### Features
+
+* Turn relative url to valid one for 'URL' constructor ([a2efee4](https://github.com/hikerpig/marka-js/commit/a2efee41abc0dc6dd9b2a3f3dfdb7d294d2cb7d5))
+
 ### [0.3.2](https://github.com/hikerpig/marka-js/compare/v0.3.1...v0.3.2) (2020-11-05)
 
 
