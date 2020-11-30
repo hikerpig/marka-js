@@ -113,12 +113,23 @@ function generateRuleCss(opts: { rule: MarkaRule; selector: string; imageBaseDir
   return { cssString, selectorText, identifier }
 }
 
+/**
+ * Turn relative url to valid one for 'URL' constructor
+ */
+function santinizeUrl(url: string) {
+  if (!url) return url
+  if (url.startsWith('/')) {
+    return `${location.protocol}//${location.host}${url}`
+  }
+  return url
+}
+
 function processUrlByRules(url: string, rules: MarkaRule[]) {
   let type = ''
   let matchedRule = null
 
   try {
-    const urlObj = new URL(url)
+    const urlObj = new URL(santinizeUrl(url))
     for (const rule of rules) {
       if (rule.pathPattern && rule.pathPattern.test(urlObj.pathname)) {
         type = rule.type
