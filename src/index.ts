@@ -167,6 +167,7 @@ const marka = {
           .slice(0, -1)
           .concat(['images'])
           .join('/')
+          .replace(/^\//, '')
         defaultOptions.imageBaseDir = `${urlObj.protocol}//${urlObj.host}/${imagesDirPath}`
       } catch (error) {
         // do nothing
