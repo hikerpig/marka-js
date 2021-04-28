@@ -1,6 +1,5 @@
 # marka-js
 
-![](https://badgen.net/badgesize/normal/https/unpkg.com/marka-js/dist/marka-js.es5.js)
 ![](https://badgen.net/jsdelivr/v/npm/marka-js)
 
 Marka is a JavaScript lib that runs in the browser, it will mark anchor elements and add icons according to the href. It is inspired by [https://beepb00p.xyz](https://beepb00p.xyz) and [anchorjs](https://github.com/bryanbraun/anchorjs).
